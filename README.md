@@ -3,7 +3,13 @@
 Premium static landing site for **Aruvio**, built to present the company as a modern brand that handles:
 
 - internet-related services
+- AI and intelligent automation
+- cybersecurity support
+- modelling and solution planning
 - digital platforms
+- app development
+- software development
+- branding systems
 - digital marketing
 - editing and creative support
 - cloud and automation workflows
@@ -42,15 +48,16 @@ Then open `http://localhost:5500`.
 3. Smooth section reveal animations on scroll
 4. Floating orbit labels around the logo
 5. Animated progress bar at the top of the page
-6. Grouped service area for websites, marketing, editing, and infrastructure support
+6. Grouped service area for AI, apps, software, branding, marketing, editing, and infrastructure support
 7. Animated counters
 8. Dark and light mode toggle with saved preference
 9. Custom cursor effects and click burst animation
 10. Detailed six-step process section
-11. Company growth section covering service expansion and long-term support
-12. Infrastructure section covering software and hardware capability
-13. FAQ and real contact section with email and mobile numbers
-14. Responsive layout for desktop and mobile
+11. Capability stack covering AI, cybersecurity, modelling, apps, software, cloud, branding, and growth support
+12. Company growth section covering service expansion and long-term support
+13. Infrastructure section covering software and hardware capability
+14. FAQ and real contact section with email and mobile numbers
+15. Responsive layout for desktop and mobile
 
 ## GitHub publishing steps
 
