@@ -316,9 +316,9 @@ body.cursor-pressed .cursor--ring {
 }
 
 .brand img {
-  width: 56px;
-  height: 56px;
-  padding: 4px;
+  width: 72px;
+  height: 48px;
+  padding: 3px 6px;
   border-radius: 14px;
   background: var(--surface-strong);
   object-fit: contain;
@@ -609,24 +609,27 @@ body[data-theme="dark"] .theme-toggle__thumb {
 
 .hero-stage {
   position: relative;
-  min-height: 720px;
+  min-height: 760px;
   display: grid;
   place-items: center;
 }
 
 .hero-stage-shell {
   position: relative;
-  width: min(600px, 100%);
-  aspect-ratio: 1 / 1;
+  width: min(700px, 100%);
+  min-height: 580px;
   transform: translate3d(var(--pointer-x, 0), var(--pointer-y, 0), 0);
 }
 
 .hero-logo-card {
   position: absolute;
-  inset: 12%;
+  top: 12%;
+  left: 8%;
+  right: 34%;
+  bottom: 18%;
   display: grid;
   place-items: center;
-  padding: clamp(18px, 3vw, 34px);
+  padding: clamp(18px, 3vw, 30px);
   border: 1px solid color-mix(in srgb, var(--surface-strong) 52%, transparent);
   border-radius: 36px;
   background:
@@ -652,7 +655,7 @@ body[data-theme="dark"] .theme-toggle__thumb {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 390px;
+  max-width: 300px;
   filter: drop-shadow(0 24px 44px rgba(8, 22, 66, 0.14));
 }
 
@@ -694,41 +697,43 @@ body[data-theme="dark"] .theme-toggle__thumb {
 }
 
 .orbit-chip--top {
-  top: 6%;
-  left: 50%;
+  top: 5%;
+  left: 40%;
   transform: translateX(-50%);
 }
 
 .orbit-chip--right {
-  top: 46%;
-  right: -1%;
+  top: 27%;
+  right: 1%;
   animation-delay: 0.8s;
 }
 
 .orbit-chip--left {
-  top: 49%;
-  left: -1%;
+  top: 57%;
+  left: 8%;
   animation-delay: 1.5s;
 }
 
 .orbit-chip--bottom {
-  bottom: 4%;
-  left: 50%;
+  bottom: 8%;
+  left: 38%;
   transform: translateX(-50%);
   animation-delay: 2.2s;
 }
 
 .pulse-card {
   position: absolute;
-  right: 2%;
-  bottom: 12%;
-  width: min(280px, 52%);
-  padding: 22px;
+  right: 0;
+  top: 18%;
+  width: min(195px, 29%);
+  min-height: 286px;
+  padding: 22px 20px;
   border: 1px solid var(--surface-border);
   border-radius: 26px;
   background: color-mix(in srgb, var(--surface-strong) 80%, transparent);
   box-shadow: var(--shadow-strong);
   overflow: hidden;
+  z-index: 2;
 }
 
 .pulse-card::after {
@@ -763,11 +768,11 @@ body[data-theme="dark"] .theme-toggle__thumb {
 
 .pulse-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
   color: var(--text-soft);
-  font-size: 0.94rem;
+  font-size: 0.9rem;
 }
 
 .pulse-row strong {
@@ -775,6 +780,12 @@ body[data-theme="dark"] .theme-toggle__thumb {
   font-size: 0.84rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.pulse-row span:first-child {
+  max-width: 104px;
+  line-height: 1.45;
 }
 
 .pulse-meter {
@@ -1355,11 +1366,43 @@ body[data-theme="dark"] .theme-toggle__thumb {
     min-height: 620px;
   }
 
+  .hero-stage-shell {
+    width: min(560px, 100%);
+    min-height: 560px;
+  }
+
+  .hero-logo-card {
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 24%;
+  }
+
+  .orbit-chip--top {
+    left: 50%;
+  }
+
+  .orbit-chip--right {
+    top: 20%;
+    right: 4%;
+  }
+
+  .orbit-chip--left {
+    top: 56%;
+    left: 6%;
+  }
+
+  .orbit-chip--bottom {
+    left: 50%;
+  }
+
   .pulse-card {
     position: relative;
     right: auto;
+    top: auto;
     bottom: auto;
     width: min(100%, 360px);
+    min-height: 0;
     margin: 26px auto 0;
   }
 
@@ -1432,17 +1475,36 @@ body[data-theme="dark"] .theme-toggle__thumb {
     min-height: 460px;
   }
 
+  .hero-stage-shell {
+    width: 100%;
+    min-height: 420px;
+  }
+
+  .hero-logo-card {
+    top: 8%;
+    left: 10%;
+    right: 10%;
+    bottom: 26%;
+    padding: 18px;
+  }
+
+  .hero-logo-card img {
+    max-width: 320px;
+  }
+
   .orbit-chip {
     padding: 10px 14px;
     font-size: 0.82rem;
   }
 
   .orbit-chip--right {
-    right: -5%;
+    top: 18%;
+    right: 0;
   }
 
   .orbit-chip--left {
-    left: -5%;
+    top: 58%;
+    left: 2%;
   }
 
   .service-panel,
