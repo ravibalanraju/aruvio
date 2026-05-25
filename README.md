@@ -4,19 +4,21 @@ Premium static landing site for **Aruvio**, built to present the company as a mo
 
 - internet-related services
 - digital platforms
+- digital marketing
+- editing and creative support
 - cloud and automation workflows
 - networking
 - storage servers
 - infrastructure support
 - direct contact-based business inquiries
 
-The design uses the provided logo and includes rich transitions, detailed service explanations, and a clear step-by-step process section.
+The design uses the provided logo and includes detailed service explanations, company growth positioning, and a clear step-by-step process section.
 
 ## Files
 
 - `index.html` - page structure and content
-- `styles.css` - full visual system, layout, and transitions
-- `script.js` - scroll progress, reveals, counters, tabs, and motion behavior
+- `styles.css` - full visual system, layout, theming, and responsive styling
+- `script.js` - scroll progress, reveals, counters, theme toggle, cursor effects, and service tabs
 - `assets/aruvio-logo.png` - copied logo asset
 
 ## Run locally
@@ -40,14 +42,15 @@ Then open `http://localhost:5500`.
 3. Smooth section reveal animations on scroll
 4. Floating orbit labels around the logo
 5. Animated progress bar at the top of the page
-6. Tab-based service transitions
+6. Grouped service area for websites, marketing, editing, and infrastructure support
 7. Animated counters
 8. Dark and light mode toggle with saved preference
 9. Custom cursor effects and click burst animation
 10. Detailed six-step process section
-11. Infrastructure section covering software and hardware capability
-12. FAQ and real contact section with email and mobile numbers
-13. Responsive layout for desktop and mobile
+11. Company growth section covering service expansion and long-term support
+12. Infrastructure section covering software and hardware capability
+13. FAQ and real contact section with email and mobile numbers
+14. Responsive layout for desktop and mobile
 
 ## GitHub publishing steps
 
