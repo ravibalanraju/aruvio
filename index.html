@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta
     name="description"
-    content="Aruvio delivers digital platforms, cloud systems, networking, storage, and full-stack internet infrastructure for modern businesses."
+    content="Aruvio delivers websites, cloud systems, networking, storage servers, and internet infrastructure for modern businesses."
   >
+  <meta name="theme-color" content="#fdfaf4">
   <title>Aruvio | Digital, Networking, and Infrastructure</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,8 +17,14 @@
   >
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-theme="light">
+  <div class="cursor cursor--dot" data-cursor-dot aria-hidden="true"></div>
+  <div class="cursor cursor--ring" data-cursor-ring aria-hidden="true"></div>
+  <div class="cursor-burst-layer" data-cursor-bursts aria-hidden="true"></div>
+
   <div class="page-noise" aria-hidden="true"></div>
+  <div class="page-aurora page-aurora--one" aria-hidden="true"></div>
+  <div class="page-aurora page-aurora--two" aria-hidden="true"></div>
   <div class="scroll-progress" data-progress aria-hidden="true"></div>
 
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -37,23 +44,53 @@
       <a class="nav-link" href="#contact">Contact</a>
     </nav>
 
-    <a class="header-cta" href="#contact">Start a Project</a>
+    <div class="header-actions">
+      <button
+        class="theme-toggle"
+        type="button"
+        data-theme-toggle
+        aria-pressed="false"
+        aria-label="Switch to dark mode"
+      >
+        <span class="theme-toggle__track" aria-hidden="true">
+          <span class="theme-toggle__thumb"></span>
+        </span>
+        <span class="theme-toggle__label" data-theme-label>Dark mode</span>
+      </button>
+
+      <a class="header-cta" href="#contact">Start a Project</a>
+    </div>
   </header>
 
   <main id="main-content">
     <section class="section hero" id="home">
       <div class="hero-copy" data-reveal>
         <p class="eyebrow">Innovate. Empower. Elevate.</p>
-        <h1>Internet products, cloud systems, networking, and server infrastructure under one brand.</h1>
+        <h1>Internet products, cloud systems, networking, and storage infrastructure built for real business.</h1>
         <p class="hero-text">
-          Aruvio is built for companies that need a team capable of handling the full digital journey:
-          websites, platforms, cloud operations, networking, storage servers, and the systems that keep
-          everything secure, scalable, and always moving.
+          Aruvio is positioned as a company that can handle the visible layer and the backbone behind it:
+          websites, platforms, cloud operations, office networking, storage servers, deployment planning,
+          and the support systems that keep business running smoothly.
         </p>
+
+        <div class="hero-contact-strip" data-reveal>
+          <a class="contact-chip" href="mailto:aruviou@gmail.com">
+            <span>Email</span>
+            <strong>aruviou@gmail.com</strong>
+          </a>
+          <a class="contact-chip" href="tel:+918489574230">
+            <span>Primary mobile</span>
+            <strong>+91 84895 74230</strong>
+          </a>
+          <a class="contact-chip" href="tel:+916381580915">
+            <span>Secondary mobile</span>
+            <strong>+91 63815 80915</strong>
+          </a>
+        </div>
 
         <div class="hero-actions">
           <a class="button button--primary" href="#services">Explore Services</a>
-          <a class="button button--ghost" href="#process">See the Full Process</a>
+          <a class="button button--ghost" href="#contact">Contact Aruvio</a>
         </div>
 
         <div class="hero-stats" data-reveal>
@@ -86,6 +123,30 @@
           <div class="orbit-chip orbit-chip--right">Networking</div>
           <div class="orbit-chip orbit-chip--left">Cloud Ops</div>
           <div class="orbit-chip orbit-chip--bottom">Storage Servers</div>
+
+          <aside class="pulse-card">
+            <p class="panel-label">Operations Snapshot</p>
+            <h3>Digital delivery and infrastructure planning in one operating rhythm.</h3>
+            <div class="pulse-list">
+              <div class="pulse-row">
+                <span>Website and portal builds</span>
+                <strong>Active</strong>
+              </div>
+              <div class="pulse-meter"><span style="--bar-width: 88%"></span></div>
+
+              <div class="pulse-row">
+                <span>Cloud and automation design</span>
+                <strong>Tracked</strong>
+              </div>
+              <div class="pulse-meter"><span style="--bar-width: 76%"></span></div>
+
+              <div class="pulse-row">
+                <span>Networking and storage direction</span>
+                <strong>Ready</strong>
+              </div>
+              <div class="pulse-meter"><span style="--bar-width: 92%"></span></div>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -100,6 +161,8 @@
         <span>Automation</span>
         <span>Digital growth</span>
         <span>Infrastructure hardening</span>
+        <span>Email-first intake</span>
+        <span>Hybrid tech delivery</span>
       </div>
       <div class="marquee-track" aria-hidden="true">
         <span>Corporate websites</span>
@@ -110,16 +173,19 @@
         <span>Automation</span>
         <span>Digital growth</span>
         <span>Infrastructure hardening</span>
+        <span>Email-first intake</span>
+        <span>Hybrid tech delivery</span>
       </div>
     </section>
 
     <section class="section" id="services">
       <div class="section-heading" data-reveal>
         <p class="eyebrow">What Aruvio handles</p>
-        <h2>One site, one company, many serious capabilities.</h2>
+        <h2>One company for online execution, hardware thinking, and long-term support.</h2>
         <p>
-          The experience is designed to show that your company can handle both online execution and
-          real-world hardware infrastructure without feeling split or confusing.
+          The site now speaks more like a real operating business by showing where Aruvio fits in:
+          client-facing websites, internal systems, cloud operations, physical infrastructure, and the
+          practical support needed after launch.
         </p>
       </div>
 
@@ -134,51 +200,65 @@
         <article class="service-panel is-active" data-service-panel="digital" data-reveal>
           <div>
             <p class="panel-label">Digital Platforms</p>
-            <h3>Web presence that looks premium and works hard.</h3>
+            <h3>Web presence that looks premium and works like a business asset.</h3>
             <p>
-              We create launch pages, business websites, product sites, portals, and custom digital
-              experiences that turn visitors into inquiries, clients, and long-term partners.
+              Aruvio can create business websites, landing pages, service portals, product pages, internal
+              dashboards, and structured experiences that explain technical services in a clear and polished way.
             </p>
+            <div class="panel-points">
+              <span>Lead generation pages</span>
+              <span>Brand storytelling</span>
+              <span>Responsive interface systems</span>
+            </div>
           </div>
           <div class="feature-grid">
-            <div class="feature-card">Brand-first websites with smooth transitions and clear storytelling.</div>
-            <div class="feature-card">Landing pages, admin dashboards, booking flows, and internal tools.</div>
-            <div class="feature-card">Performance-ready structure for mobile, desktop, and future growth.</div>
-            <div class="feature-card">Content architecture built to explain complex technical services clearly.</div>
+            <div class="feature-card">Brand-first websites with strong motion, clean storytelling, and premium polish.</div>
+            <div class="feature-card">Landing pages, admin dashboards, inquiry flows, and internal-use interfaces.</div>
+            <div class="feature-card">Performance-ready structure for mobile, desktop, and future expansion.</div>
+            <div class="feature-card">Content layouts that explain complex technical services without confusion.</div>
           </div>
         </article>
 
         <article class="service-panel" data-service-panel="cloud" data-reveal>
           <div>
             <p class="panel-label">Cloud and Automation</p>
-            <h3>Systems that stay online, organized, and scalable.</h3>
+            <h3>Systems that stay online, organized, and scalable behind the scenes.</h3>
             <p>
-              Aruvio can operate on the invisible layers too: cloud environments, deployment flows,
-              process automation, and connected digital systems that reduce friction across the business.
+              Beyond the surface layer, Aruvio can support cloud environments, deployment direction,
+              business automation flows, connected app logic, and operational setups that reduce friction.
             </p>
+            <div class="panel-points">
+              <span>Deployment planning</span>
+              <span>Backup thinking</span>
+              <span>Workflow integration</span>
+            </div>
           </div>
           <div class="feature-grid">
-            <div class="feature-card">Cloud setup, deployment planning, and service orchestration.</div>
-            <div class="feature-card">Monitoring, backup strategy, and operational reliability workflows.</div>
-            <div class="feature-card">Integrations between apps, websites, data flows, and internal teams.</div>
-            <div class="feature-card">Automation thinking that improves speed without losing control.</div>
+            <div class="feature-card">Cloud setup, deployment strategy, and service orchestration planning.</div>
+            <div class="feature-card">Monitoring, backup direction, and operational reliability workflows.</div>
+            <div class="feature-card">Integrations across websites, apps, internal tools, and business processes.</div>
+            <div class="feature-card">Automation thinking that improves speed while keeping control in place.</div>
           </div>
         </article>
 
         <article class="service-panel" data-service-panel="network" data-reveal>
           <div>
             <p class="panel-label">Networking and Storage</p>
-            <h3>Hardware-minded execution for business-critical environments.</h3>
+            <h3>Hardware-aware delivery for offices, server rooms, and growing businesses.</h3>
             <p>
-              Your brand is not only about internet services. This section makes it clear that Aruvio also
-              speaks the language of routers, switching, storage, server racks, redundancy, and structured
-              network planning.
+              Aruvio is not limited to web-only work. The brand story now clearly includes routers,
+              switching, storage strategy, backup structure, connectivity planning, and uptime-minded decisions.
             </p>
+            <div class="panel-points">
+              <span>Network layout planning</span>
+              <span>Storage server direction</span>
+              <span>Security-aware reviews</span>
+            </div>
           </div>
           <div class="feature-grid">
-            <div class="feature-card">Office and enterprise network layout planning.</div>
-            <div class="feature-card">Storage server direction for backups, file access, and resilience.</div>
-            <div class="feature-card">Server room and connectivity strategy with uptime in mind.</div>
+            <div class="feature-card">Office and enterprise network layout planning for structured connectivity.</div>
+            <div class="feature-card">Storage server direction for backups, internal access, and resilience.</div>
+            <div class="feature-card">Server-room and connectivity strategy with stability and growth in mind.</div>
             <div class="feature-card">Security-first hardware recommendations and maintenance workflows.</div>
           </div>
         </article>
@@ -186,17 +266,77 @@
         <article class="service-panel" data-service-panel="growth" data-reveal>
           <div>
             <p class="panel-label">Support and Growth</p>
-            <h3>Launch support that continues after the website goes live.</h3>
+            <h3>Post-launch support that keeps the relationship active.</h3>
             <p>
-              The site also positions Aruvio as a long-term partner rather than a one-time vendor by
-              explaining how strategy, support, and optimization continue after delivery.
+              The site now makes Aruvio feel more real by explaining what happens after delivery:
+              improvements, expansions, content updates, monitoring, technical guidance, and ongoing support.
             </p>
+            <div class="panel-points">
+              <span>Maintenance retainers</span>
+              <span>Expansion planning</span>
+              <span>Operational guidance</span>
+            </div>
           </div>
           <div class="feature-grid">
-            <div class="feature-card">Maintenance, updates, and service expansion roadmaps.</div>
-            <div class="feature-card">SEO-minded structure and growth-focused content direction.</div>
-            <div class="feature-card">Operational guidance for scaling teams, tools, and infrastructure.</div>
-            <div class="feature-card">A single partner for digital, infrastructure, and ongoing improvement.</div>
+            <div class="feature-card">Maintenance, updates, and service expansion roadmaps after launch.</div>
+            <div class="feature-card">SEO-aware structure and content planning for long-term growth.</div>
+            <div class="feature-card">Operational guidance for scaling teams, tools, and infrastructure layers.</div>
+            <div class="feature-card">One partner across digital execution, infrastructure, and ongoing improvement.</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--reality">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">Made for real work</p>
+        <h2>How businesses can actually use Aruvio.</h2>
+        <p>
+          Instead of sounding like a generic template, this part describes the kinds of real assignments
+          the company can take on across digital systems and infrastructure.
+        </p>
+      </div>
+
+      <div class="engagement-grid">
+        <article class="engagement-card" data-reveal>
+          <p class="panel-label">Engagement 01</p>
+          <h3>Launch a serious company website with inquiry flows.</h3>
+          <p>
+            Perfect when a business needs a polished online presence, service explanation pages, strong
+            contact paths, and a design that communicates trust from the first visit.
+          </p>
+          <div class="engagement-points">
+            <span>Business site architecture</span>
+            <span>Lead capture pathways</span>
+            <span>Responsive brand presentation</span>
+          </div>
+        </article>
+
+        <article class="engagement-card" data-reveal>
+          <p class="panel-label">Engagement 02</p>
+          <h3>Combine digital delivery with network and storage planning.</h3>
+          <p>
+            Useful for growing teams that need a website, infrastructure guidance, office connectivity
+            planning, and storage direction without splitting work across multiple vendors.
+          </p>
+          <div class="engagement-points">
+            <span>Network layout review</span>
+            <span>Storage and backup thinking</span>
+            <span>Integrated rollout guidance</span>
+          </div>
+        </article>
+
+        <article class="engagement-card" data-reveal>
+          <p class="panel-label">Engagement 03</p>
+          <h3>Stay supported after the first release or setup.</h3>
+          <p>
+            For teams that want ongoing updates, service expansion, infrastructure recommendations,
+            performance tuning, and a reliable point of contact as needs evolve.
+          </p>
+          <div class="engagement-points">
+            <span>Ongoing technical updates</span>
+            <span>Growth and optimization</span>
+            <span>Support-first relationship</span>
           </div>
         </article>
       </div>
@@ -205,11 +345,11 @@
     <section class="section section--motion" id="motion">
       <div class="section-heading" data-reveal>
         <p class="eyebrow">Transitions everywhere</p>
-        <h2>Motion is part of the story, not decoration.</h2>
+        <h2>Motion is now richer, smarter, and more interactive.</h2>
         <p>
-          Since you asked for every transition style to be present, this page combines load animation,
-          hover movement, tab morphing, marquee motion, scroll reveals, counter animation, parallax, and
-          soft section-to-section shifts throughout the experience.
+          The upgraded experience combines load animation, cursor effects, hover motion, tab morphing,
+          scroll reveals, parallax, theme transitions, FAQ expansion, counter animation, and ambient
+          background movement so the site feels alive without becoming messy.
         </p>
       </div>
 
@@ -217,32 +357,32 @@
         <article class="motion-card" data-reveal>
           <span>01</span>
           <h3>Hero reveal</h3>
-          <p>Headline, logo stage, and action buttons fade upward on load with layered depth.</p>
+          <p>Headline, logo stage, and contact chips rise in with layered depth as the page loads.</p>
         </article>
         <article class="motion-card" data-reveal>
           <span>02</span>
-          <h3>Floating chips</h3>
-          <p>Service labels orbit around the logo to imply a connected ecosystem.</p>
+          <h3>Special cursor</h3>
+          <p>A custom cursor ring, glow response, and click bursts give the page a more premium feel.</p>
         </article>
         <article class="motion-card" data-reveal>
           <span>03</span>
-          <h3>Scroll triggers</h3>
-          <p>Cards animate into view in a staggered pattern as the reader moves deeper.</p>
+          <h3>Theme shift</h3>
+          <p>Light and dark mode change the entire atmosphere while keeping the branding consistent.</p>
         </article>
         <article class="motion-card" data-reveal>
           <span>04</span>
-          <h3>Tab transitions</h3>
-          <p>The service area changes state smoothly so each business capability feels deliberate.</p>
+          <h3>Scroll triggers</h3>
+          <p>Cards stagger into view as visitors move deeper through the services and process sections.</p>
         </article>
         <article class="motion-card" data-reveal>
           <span>05</span>
-          <h3>Counter rise</h3>
-          <p>Numbers animate when visible, adding energy without making the layout feel noisy.</p>
+          <h3>Panel morphing</h3>
+          <p>The service switcher changes state smoothly so each capability feels intentionally presented.</p>
         </article>
         <article class="motion-card" data-reveal>
           <span>06</span>
-          <h3>Hover feedback</h3>
-          <p>Buttons, cards, and architecture nodes react with lift, light, and subtle motion.</p>
+          <h3>Micro-interactions</h3>
+          <p>Buttons, cards, metrics, FAQs, and architecture blocks respond with lift, glow, and motion.</p>
         </article>
       </div>
     </section>
@@ -250,10 +390,10 @@
     <section class="section section--process" id="process">
       <div class="section-heading" data-reveal>
         <p class="eyebrow">Detailed workflow</p>
-        <h2>Every major step is explained clearly.</h2>
+        <h2>Every major step is explained in a more business-real way.</h2>
         <p>
-          This section is intentionally detailed so future clients can understand how Aruvio moves from
-          idea to execution across internet services and hardware infrastructure.
+          This is written to help future clients understand not just what Aruvio does, but how work is
+          approached from the first conversation to deployment, infrastructure alignment, and support.
         </p>
       </div>
 
@@ -262,48 +402,48 @@
           <span class="process-index">01</span>
           <h3>Discovery and business mapping</h3>
           <p>
-            We begin by understanding the company vision, the customer profile, current challenges, service
-            priorities, and the scale of work needed across web, software, cloud, or hardware.
+            The first step is understanding the company vision, audience, service priorities, delivery
+            gaps, growth plans, and where digital systems or infrastructure changes are really needed.
           </p>
         </article>
         <article class="process-card" data-reveal>
           <span class="process-index">02</span>
-          <h3>Technical planning and scope shaping</h3>
+          <h3>Scope, requirements, and solution design</h3>
           <p>
-            The next step is translating business goals into a technical roadmap: page structure, service
-            architecture, infrastructure requirements, content needs, support model, and launch timeline.
+            Aruvio then shapes the project into a clear roadmap covering site structure, system needs,
+            content direction, platform logic, infrastructure concerns, and post-launch expectations.
           </p>
         </article>
         <article class="process-card" data-reveal>
           <span class="process-index">03</span>
-          <h3>Interface and messaging design</h3>
+          <h3>Visual direction and interface experience</h3>
           <p>
-            We design a premium visual identity for the website experience so the brand feels modern,
-            trustworthy, and capable of handling both software-facing and hardware-facing services.
+            The brand presentation is designed to feel premium, trustworthy, and modern while still being
+            detailed enough to represent technical depth across both internet and hardware service layers.
           </p>
         </article>
         <article class="process-card" data-reveal>
           <span class="process-index">04</span>
-          <h3>Build, connect, and animate</h3>
+          <h3>Build, animate, and structure the experience</h3>
           <p>
-            The site is coded with responsive layouts, strong transitions, motion systems, reusable
-            sections, and structured content that explains the business in a polished and detailed way.
+            The site is then coded with responsive layouts, detailed content sections, custom transitions,
+            dark and light mode support, and clear user journeys that help people understand the business fast.
           </p>
         </article>
         <article class="process-card" data-reveal>
           <span class="process-index">05</span>
-          <h3>Infrastructure alignment</h3>
+          <h3>Infrastructure alignment and operational review</h3>
           <p>
-            Once the presentation layer is ready, we align the real service story around hosting, network
-            readiness, security posture, storage direction, deployment paths, and maintenance planning.
+            Once the experience is shaped, the operational layer is aligned around hosting, backup
+            planning, networking readiness, storage direction, deployment paths, and support structure.
           </p>
         </article>
         <article class="process-card" data-reveal>
           <span class="process-index">06</span>
-          <h3>Launch, support, and continuous growth</h3>
+          <h3>Launch, follow-up, and continuous support</h3>
           <p>
-            After launch, Aruvio continues through updates, service additions, optimization, and long-term
-            support so the business keeps evolving instead of standing still.
+            After launch, Aruvio remains useful through updates, technical changes, infrastructure advice,
+            content refreshes, and long-term support as the business keeps growing.
           </p>
         </article>
       </div>
@@ -312,10 +452,10 @@
     <section class="section section--infrastructure" id="infrastructure">
       <div class="section-heading" data-reveal>
         <p class="eyebrow">Infrastructure depth</p>
-        <h2>A digital studio with real hardware credibility.</h2>
+        <h2>A digital company with visible hardware credibility.</h2>
         <p>
-          This layout reinforces that Aruvio can think beyond websites and cover the operational backbone
-          that supports performance, storage, connectivity, and long-term stability.
+          This section reinforces that Aruvio is comfortable across websites and operations, including
+          connectivity, storage, backup logic, security posture, and long-term infrastructure stability.
         </p>
       </div>
 
@@ -323,10 +463,10 @@
         <article class="infra-column" data-reveal>
           <h3>Internet and software layer</h3>
           <div class="infra-stack">
-            <div class="infra-node">Brand websites and landing pages</div>
-            <div class="infra-node">Internal dashboards and service portals</div>
-            <div class="infra-node">Cloud deployment and monitoring</div>
-            <div class="infra-node">Automation and connected workflows</div>
+            <div class="infra-node">Brand websites and conversion-focused landing pages</div>
+            <div class="infra-node">Internal dashboards, service portals, and user journeys</div>
+            <div class="infra-node">Cloud deployment direction and monitoring workflows</div>
+            <div class="infra-node">Automation connections between tools, people, and data</div>
           </div>
         </article>
 
@@ -335,10 +475,10 @@
           <div class="core-ring core-ring--inner"></div>
           <div class="core-panel">
             <p class="panel-label">Core Delivery Model</p>
-            <h3>Aruvio integrates strategy, build, and infrastructure in one flow.</h3>
+            <h3>Aruvio integrates strategy, build, infrastructure, and support in one flow.</h3>
             <p>
-              That means clients do not need one vendor for the website, another for the network, and a
-              third for storage planning. The story feels unified from the first click to the final system.
+              That makes the company feel more real and practical: clients do not need one vendor for a
+              website, another for the network, and another for storage planning when one operating partner can align them.
             </p>
           </div>
         </article>
@@ -346,62 +486,148 @@
         <article class="infra-column" data-reveal>
           <h3>Hardware and operations layer</h3>
           <div class="infra-stack">
-            <div class="infra-node">Network planning and connectivity layout</div>
-            <div class="infra-node">Storage servers and backup direction</div>
-            <div class="infra-node">Security-minded infrastructure reviews</div>
-            <div class="infra-node">Ongoing support and maintenance readiness</div>
+            <div class="infra-node">Network planning, switching direction, and office connectivity layout</div>
+            <div class="infra-node">Storage server direction for resilience, access, and backup planning</div>
+            <div class="infra-node">Security-minded reviews across devices, access, and availability thinking</div>
+            <div class="infra-node">Maintenance readiness and support planning for future scaling</div>
+          </div>
+        </article>
+      </div>
+
+      <div class="outcome-grid outcome-grid--infra">
+        <article class="outcome-card" data-reveal>
+          <h3>Clearer technical identity</h3>
+          <p>The site now clearly states that Aruvio can handle both online systems and real infrastructure work.</p>
+        </article>
+        <article class="outcome-card" data-reveal>
+          <h3>More believable process</h3>
+          <p>Operational planning, backup thinking, and support language make the company feel active and practical.</p>
+        </article>
+        <article class="outcome-card" data-reveal>
+          <h3>Stronger contact readiness</h3>
+          <p>Visitors now see real email and mobile numbers throughout the experience instead of a generic ending.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--faq">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">Common questions</p>
+        <h2>Answers that make the brand feel more grounded.</h2>
+        <p>
+          These questions help visitors understand where Aruvio fits, what kinds of work it can take on,
+          and how people should start a conversation.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <article class="faq-item is-open" data-reveal>
+          <button class="faq-trigger" type="button" aria-expanded="true">
+            <span>Do you only build websites?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              No. Aruvio can handle websites and other internet-facing work, but the brand also covers
+              cloud direction, networking, storage-server planning, infrastructure thinking, and support workflows.
+            </p>
+          </div>
+        </article>
+
+        <article class="faq-item" data-reveal>
+          <button class="faq-trigger" type="button" aria-expanded="false">
+            <span>When should someone email instead of calling?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Email is best when the project has more details, files, or a service brief. Calls are useful
+              for fast coordination, initial discussions, and urgent follow-up on ongoing work.
+            </p>
+          </div>
+        </article>
+
+        <article class="faq-item" data-reveal>
+          <button class="faq-trigger" type="button" aria-expanded="false">
+            <span>Can Aruvio support both digital and infrastructure work in one project?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Yes. The site is now intentionally structured to show that a client can request a web
+              presence, cloud setup thinking, networking direction, storage planning, and support as part of one engagement.
+            </p>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="section section--outcomes">
-      <div class="section-heading" data-reveal>
-        <p class="eyebrow">What the site communicates</p>
-        <h2>A future-facing company with range, structure, and confidence.</h2>
-      </div>
-
-      <div class="outcome-grid">
-        <article class="outcome-card" data-reveal>
-          <h3>Premium first impression</h3>
-          <p>The look and motion help the brand feel credible from the first second.</p>
-        </article>
-        <article class="outcome-card" data-reveal>
-          <h3>Technical authority</h3>
-          <p>Service descriptions speak to both digital execution and infrastructure depth.</p>
-        </article>
-        <article class="outcome-card" data-reveal>
-          <h3>Detailed client journey</h3>
-          <p>The process section explains how work will move, which increases trust.</p>
-        </article>
-        <article class="outcome-card" data-reveal>
-          <h3>Launch readiness</h3>
-          <p>The project is structured as a clean static site that can be hosted almost anywhere.</p>
-        </article>
-      </div>
-    </section>
-
     <section class="section section--contact" id="contact">
-      <div class="contact-panel" data-reveal>
-        <div>
-          <p class="eyebrow">Launch-ready</p>
-          <h2>From thinking to achievement.</h2>
-          <p>
-            This site positions Aruvio as a brand that can design, build, deploy, connect, support, and
-            scale. The codebase is also prepared for GitHub publication with a step-by-step README.
-          </p>
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow">Contact Aruvio</p>
+        <h2>Reach out directly for websites, infrastructure, or hybrid technical work.</h2>
+        <p>
+          The contact area now feels like a real company handoff: direct email, two mobile numbers, and a
+          clear explanation of how to start the conversation.
+        </p>
+      </div>
+
+      <div class="contact-shell">
+        <div class="contact-panel" data-reveal>
+          <div>
+            <p class="eyebrow">Direct access</p>
+            <h2>From thinking to achievement.</h2>
+            <p>
+              Use email for project briefs, requirement summaries, and service discussions. Use either
+              mobile line for fast coordination around websites, networking, storage, server planning, and support.
+            </p>
+          </div>
+
+          <div class="contact-actions">
+            <a class="button button--primary" href="mailto:aruviou@gmail.com">Email Aruvio</a>
+            <a class="button button--ghost" href="tel:+918489574230">Call Main Line</a>
+          </div>
         </div>
 
-        <div class="contact-actions">
-          <a class="button button--primary" href="#home">Back to Top</a>
-          <a class="button button--ghost" href="README.md">Read the GitHub Steps</a>
+        <div class="contact-grid">
+          <a class="contact-card" data-reveal href="mailto:aruviou@gmail.com">
+            <span class="contact-label">Email</span>
+            <strong>aruviou@gmail.com</strong>
+            <small>Best for project briefs, service needs, and detailed requirements.</small>
+          </a>
+
+          <a class="contact-card" data-reveal href="tel:+918489574230">
+            <span class="contact-label">Mobile 01</span>
+            <strong>+91 84895 74230</strong>
+            <small>For direct discussions, coordination, and active opportunity follow-up.</small>
+          </a>
+
+          <a class="contact-card" data-reveal href="tel:+916381580915">
+            <span class="contact-label">Mobile 02</span>
+            <strong>+91 63815 80915</strong>
+            <small>Secondary line for quick reach and project continuity.</small>
+          </a>
+
+          <article class="contact-card contact-card--note" data-reveal>
+            <span class="contact-label">Working style</span>
+            <strong>Clear discussions, practical planning, and support beyond launch.</strong>
+            <small>
+              Aruvio is positioned here as a company that can move from inquiry to execution across digital,
+              cloud, networking, and storage-related work.
+            </small>
+          </article>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>Aruvio launch concept site. Built for digital services, cloud systems, networking, and storage infrastructure.</p>
+    <p>Aruvio builds internet products, cloud systems, networking, and storage-ready infrastructure for growing businesses.</p>
+    <div class="footer-links">
+      <a href="mailto:aruviou@gmail.com">aruviou@gmail.com</a>
+      <a href="tel:+918489574230">+91 84895 74230</a>
+      <a href="tel:+916381580915">+91 63815 80915</a>
+    </div>
   </footer>
 
   <script src="script.js"></script>

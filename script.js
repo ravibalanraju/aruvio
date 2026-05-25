@@ -1,3 +1,4 @@
+const body = document.body;
 const header = document.querySelector(".site-header");
 const progressBar = document.querySelector("[data-progress]");
 const revealElements = document.querySelectorAll("[data-reveal]");
@@ -7,7 +8,42 @@ const tabButtons = document.querySelectorAll("[data-service]");
 const tabPanels = document.querySelectorAll("[data-service-panel]");
 const heroStage = document.querySelector(".hero-stage-shell");
 const counterElements = document.querySelectorAll("[data-counter]");
+const themeToggle = document.querySelector("[data-theme-toggle]");
+const themeLabel = document.querySelector("[data-theme-label]");
+const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+const faqItems = document.querySelectorAll(".faq-item");
+const cursorDot = document.querySelector("[data-cursor-dot]");
+const cursorRing = document.querySelector("[data-cursor-ring]");
+const cursorBurstLayer = document.querySelector("[data-cursor-bursts]");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+const finePointerQuery = window.matchMedia("(pointer: fine)");
+
+const THEME_KEY = "aruvio-theme";
+const LIGHT_THEME_COLOR = "#fdfaf4";
+const DARK_THEME_COLOR = "#091425";
+const interactiveSelector = [
+  "a",
+  "button",
+  ".feature-card",
+  ".motion-card",
+  ".process-card",
+  ".outcome-card",
+  ".engagement-card",
+  ".contact-card",
+  ".contact-chip",
+  ".infra-node",
+  ".service-tab",
+  ".faq-trigger",
+].join(", ");
+
+let serviceRotation;
+let cursorAnimationFrame;
+let cursorEnabled = false;
+let cursorTargetX = window.innerWidth / 2;
+let cursorTargetY = window.innerHeight / 2;
+let ringX = cursorTargetX;
+let ringY = cursorTargetY;
 
 const setRevealDelays = () => {
   revealElements.forEach((element, index) => {
@@ -33,7 +69,7 @@ const revealObserver = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.18,
+    threshold: 0.16,
     rootMargin: "0px 0px -10% 0px",
   }
 );
@@ -89,6 +125,41 @@ const counterObserver = new IntersectionObserver(
   }
 );
 
+const updateThemeUi = (theme) => {
+  const isDark = theme === "dark";
+  body.dataset.theme = theme;
+  themeToggle?.setAttribute("aria-pressed", String(isDark));
+  themeToggle?.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+
+  if (themeLabel) {
+    themeLabel.textContent = isDark ? "Light mode" : "Dark mode";
+  }
+
+  if (themeColorMeta) {
+    themeColorMeta.setAttribute("content", isDark ? DARK_THEME_COLOR : LIGHT_THEME_COLOR);
+  }
+};
+
+const getStoredTheme = () => localStorage.getItem(THEME_KEY);
+
+const getPreferredTheme = () => {
+  const storedTheme = getStoredTheme();
+
+  if (storedTheme === "light" || storedTheme === "dark") {
+    return storedTheme;
+  }
+
+  return prefersDarkScheme.matches ? "dark" : "light";
+};
+
+const applyTheme = (theme, shouldStore = true) => {
+  updateThemeUi(theme);
+
+  if (shouldStore) {
+    localStorage.setItem(THEME_KEY, theme);
+  }
+};
+
 const setActiveService = (serviceName) => {
   tabButtons.forEach((button) => {
     button.classList.toggle("is-active", button.dataset.service === serviceName);
@@ -104,12 +175,18 @@ const setActiveService = (serviceName) => {
   });
 };
 
-let serviceRotation;
+const stopServiceRotation = () => {
+  if (serviceRotation) {
+    window.clearInterval(serviceRotation);
+  }
+};
 
 const startServiceRotation = () => {
   if (prefersReducedMotion.matches || tabButtons.length === 0) {
     return;
   }
+
+  stopServiceRotation();
 
   const services = [...tabButtons].map((button) => button.dataset.service);
   let currentIndex = services.findIndex((service) =>
@@ -120,12 +197,6 @@ const startServiceRotation = () => {
     currentIndex = (currentIndex + 1) % services.length;
     setActiveService(services[currentIndex]);
   }, 5200);
-};
-
-const stopServiceRotation = () => {
-  if (serviceRotation) {
-    window.clearInterval(serviceRotation);
-  }
 };
 
 const enableHeroParallax = () => {
@@ -148,8 +219,102 @@ const enableHeroParallax = () => {
   });
 };
 
+const setCursorHoverState = (target) => {
+  if (!cursorEnabled) {
+    body.classList.remove("cursor-hovering");
+    return;
+  }
+
+  body.classList.toggle("cursor-hovering", Boolean(target?.closest(interactiveSelector)));
+};
+
+const animateCursor = () => {
+  if (!cursorEnabled || !cursorDot || !cursorRing) {
+    return;
+  }
+
+  ringX += (cursorTargetX - ringX) * 0.18;
+  ringY += (cursorTargetY - ringY) * 0.18;
+
+  cursorDot.style.setProperty("--dot-x", `${cursorTargetX}px`);
+  cursorDot.style.setProperty("--dot-y", `${cursorTargetY}px`);
+  cursorRing.style.setProperty("--ring-x", `${ringX}px`);
+  cursorRing.style.setProperty("--ring-y", `${ringY}px`);
+
+  cursorAnimationFrame = requestAnimationFrame(animateCursor);
+};
+
+const disableCustomCursor = () => {
+  cursorEnabled = false;
+  body.classList.remove("has-custom-cursor", "cursor-hovering", "cursor-pressed");
+
+  if (cursorAnimationFrame) {
+    cancelAnimationFrame(cursorAnimationFrame);
+    cursorAnimationFrame = undefined;
+  }
+};
+
+const enableCustomCursor = () => {
+  cursorEnabled = finePointerQuery.matches && !prefersReducedMotion.matches;
+
+  if (!cursorEnabled) {
+    disableCustomCursor();
+    return;
+  }
+
+  body.classList.add("has-custom-cursor");
+
+  if (!cursorAnimationFrame) {
+    cursorAnimationFrame = requestAnimationFrame(animateCursor);
+  }
+};
+
+const createCursorBurst = (x, y) => {
+  if (!cursorEnabled || !cursorBurstLayer) {
+    return;
+  }
+
+  const particleCount = 8;
+
+  for (let index = 0; index < particleCount; index += 1) {
+    const particle = document.createElement("span");
+    const angle = (Math.PI * 2 * index) / particleCount + Math.random() * 0.34;
+    const distance = 20 + Math.random() * 26;
+
+    particle.className = "cursor-burst";
+    particle.style.left = `${x}px`;
+    particle.style.top = `${y}px`;
+    particle.style.setProperty("--dx", `${Math.cos(angle) * distance}px`);
+    particle.style.setProperty("--dy", `${Math.sin(angle) * distance}px`);
+    cursorBurstLayer.appendChild(particle);
+
+    window.setTimeout(() => particle.remove(), 700);
+  }
+};
+
+const bindFaqs = () => {
+  faqItems.forEach((item) => {
+    const trigger = item.querySelector(".faq-trigger");
+
+    trigger?.addEventListener("click", () => {
+      const isOpen = item.classList.contains("is-open");
+
+      faqItems.forEach((faqItem) => {
+        faqItem.classList.remove("is-open");
+        faqItem.querySelector(".faq-trigger")?.setAttribute("aria-expanded", "false");
+      });
+
+      if (!isOpen) {
+        item.classList.add("is-open");
+        trigger.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+};
+
 setRevealDelays();
 updateScrollState();
+applyTheme(getPreferredTheme(), false);
 
 revealElements.forEach((element) => revealObserver.observe(element));
 sections.forEach((section) => navObserver.observe(section));
@@ -161,10 +326,63 @@ window.addEventListener("resize", updateScrollState);
 tabButtons.forEach((button) => {
   button.addEventListener("click", () => {
     setActiveService(button.dataset.service);
-    stopServiceRotation();
     startServiceRotation();
   });
 });
 
+themeToggle?.addEventListener("click", () => {
+  const nextTheme = body.dataset.theme === "dark" ? "light" : "dark";
+  applyTheme(nextTheme);
+});
+
+prefersDarkScheme.addEventListener("change", (event) => {
+  if (getStoredTheme()) {
+    return;
+  }
+
+  applyTheme(event.matches ? "dark" : "light", false);
+});
+
+finePointerQuery.addEventListener("change", enableCustomCursor);
+prefersReducedMotion.addEventListener("change", enableCustomCursor);
+
+document.addEventListener("pointermove", (event) => {
+  if (!cursorEnabled) {
+    return;
+  }
+
+  body.classList.add("has-custom-cursor");
+  cursorTargetX = event.clientX;
+  cursorTargetY = event.clientY;
+  body.style.setProperty("--cursor-x", `${event.clientX}px`);
+  body.style.setProperty("--cursor-y", `${event.clientY}px`);
+  setCursorHoverState(event.target);
+});
+
+document.addEventListener("pointerleave", () => {
+  body.classList.remove("has-custom-cursor", "cursor-hovering");
+});
+
+document.addEventListener("pointerenter", () => {
+  if (cursorEnabled) {
+    body.classList.add("has-custom-cursor");
+  }
+});
+
+document.addEventListener("pointerdown", (event) => {
+  if (!cursorEnabled) {
+    return;
+  }
+
+  body.classList.add("cursor-pressed");
+  createCursorBurst(event.clientX, event.clientY);
+});
+
+document.addEventListener("pointerup", () => {
+  body.classList.remove("cursor-pressed");
+});
+
+bindFaqs();
 enableHeroParallax();
+enableCustomCursor();
 startServiceRotation();

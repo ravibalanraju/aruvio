@@ -8,6 +8,7 @@ Premium static landing site for **Aruvio**, built to present the company as a mo
 - networking
 - storage servers
 - infrastructure support
+- direct contact-based business inquiries
 
 The design uses the provided logo and includes rich transitions, detailed service explanations, and a clear step-by-step process section.
 
@@ -41,9 +42,12 @@ Then open `http://localhost:5500`.
 5. Animated progress bar at the top of the page
 6. Tab-based service transitions
 7. Animated counters
-8. Detailed six-step process section
-9. Infrastructure section covering software and hardware capability
-10. Responsive layout for desktop and mobile
+8. Dark and light mode toggle with saved preference
+9. Custom cursor effects and click burst animation
+10. Detailed six-step process section
+11. Infrastructure section covering software and hardware capability
+12. FAQ and real contact section with email and mobile numbers
+13. Responsive layout for desktop and mobile
 
 ## GitHub publishing steps
 
