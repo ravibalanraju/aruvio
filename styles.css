@@ -430,7 +430,7 @@ body[data-theme="dark"] .theme-toggle__thumb {
   display: grid;
   grid-template-columns: minmax(0, 1.02fr) minmax(340px, 0.98fr);
   gap: 48px;
-  align-items: center;
+  align-items: start;
 }
 
 .eyebrow {
@@ -448,9 +448,14 @@ body[data-theme="dark"] .theme-toggle__thumb {
   margin: 0;
   color: var(--text);
   font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(2.7rem, 4vw, 5rem);
-  line-height: 0.98;
+  font-size: clamp(2.35rem, 3.5vw, 4.4rem);
+  line-height: 0.95;
   letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.hero-copy {
+  max-width: 690px;
 }
 
 .hero-text,
@@ -466,6 +471,10 @@ body[data-theme="dark"] .theme-toggle__thumb {
   color: var(--text-soft);
   line-height: 1.75;
   font-size: 1.02rem;
+}
+
+.hero-text {
+  max-width: 64ch;
 }
 
 .hero-contact-strip {
@@ -612,11 +621,12 @@ body[data-theme="dark"] .theme-toggle__thumb {
   min-height: 760px;
   display: grid;
   place-items: center;
+  padding-top: 12px;
 }
 
 .hero-stage-shell {
   position: relative;
-  width: min(700px, 100%);
+  width: min(760px, 100%);
   min-height: 580px;
   transform: translate3d(var(--pointer-x, 0), var(--pointer-y, 0), 0);
 }
@@ -625,8 +635,8 @@ body[data-theme="dark"] .theme-toggle__thumb {
   position: absolute;
   top: 12%;
   left: 8%;
-  right: 34%;
-  bottom: 18%;
+  right: 40%;
+  bottom: 20%;
   display: grid;
   place-items: center;
   padding: clamp(18px, 3vw, 30px);
@@ -655,7 +665,7 @@ body[data-theme="dark"] .theme-toggle__thumb {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 300px;
+  max-width: 280px;
   filter: drop-shadow(0 24px 44px rgba(8, 22, 66, 0.14));
 }
 
@@ -703,20 +713,20 @@ body[data-theme="dark"] .theme-toggle__thumb {
 }
 
 .orbit-chip--right {
-  top: 27%;
-  right: 1%;
+  top: 16%;
+  right: -8%;
   animation-delay: 0.8s;
 }
 
 .orbit-chip--left {
-  top: 57%;
-  left: 8%;
+  top: 62%;
+  left: -4%;
   animation-delay: 1.5s;
 }
 
 .orbit-chip--bottom {
-  bottom: 8%;
-  left: 38%;
+  bottom: 7%;
+  left: 40%;
   transform: translateX(-50%);
   animation-delay: 2.2s;
 }
@@ -724,10 +734,10 @@ body[data-theme="dark"] .theme-toggle__thumb {
 .pulse-card {
   position: absolute;
   right: 0;
-  top: 18%;
-  width: min(195px, 29%);
-  min-height: 286px;
-  padding: 22px 20px;
+  top: 14%;
+  width: min(260px, 31%);
+  min-height: 304px;
+  padding: 24px 22px;
   border: 1px solid var(--surface-border);
   border-radius: 26px;
   background: color-mix(in srgb, var(--surface-strong) 80%, transparent);
@@ -755,8 +765,12 @@ body[data-theme="dark"] .theme-toggle__thumb {
   margin: 0 0 12px;
   color: var(--text);
   font-family: "Space Grotesk", sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   line-height: 1.15;
+}
+
+.pulse-card h3 {
+  max-width: 12ch;
 }
 
 .pulse-list {
@@ -900,6 +914,8 @@ body[data-theme="dark"] .theme-toggle__thumb {
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  position: relative;
+  z-index: 1;
 }
 
 .panel-points,
@@ -1367,14 +1383,14 @@ body[data-theme="dark"] .theme-toggle__thumb {
   }
 
   .hero-stage-shell {
-    width: min(560px, 100%);
+    width: min(580px, 100%);
     min-height: 560px;
   }
 
   .hero-logo-card {
     top: 10%;
     left: 10%;
-    right: 10%;
+    right: 12%;
     bottom: 24%;
   }
 
@@ -1384,12 +1400,12 @@ body[data-theme="dark"] .theme-toggle__thumb {
 
   .orbit-chip--right {
     top: 20%;
-    right: 4%;
+    right: 2%;
   }
 
   .orbit-chip--left {
-    top: 56%;
-    left: 6%;
+    top: 58%;
+    left: 4%;
   }
 
   .orbit-chip--bottom {
@@ -1427,6 +1443,15 @@ body[data-theme="dark"] .theme-toggle__thumb {
   .site-header {
     margin-top: 12px;
     padding: 14px;
+  }
+
+  body::before {
+    content: none;
+  }
+
+  .cursor,
+  .cursor-burst-layer {
+    display: none;
   }
 
   .brand span,
@@ -1478,6 +1503,19 @@ body[data-theme="dark"] .theme-toggle__thumb {
   .hero-stage-shell {
     width: 100%;
     min-height: 420px;
+  }
+
+  .section--motion::before {
+    content: none;
+  }
+
+  .page-aurora,
+  .hero-orbit {
+    display: none;
+  }
+
+  .strip--marquee {
+    display: none;
   }
 
   .hero-logo-card {
